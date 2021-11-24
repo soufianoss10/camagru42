@@ -1,0 +1,13 @@
+POST http://localhost:8888/kjdskfjdhthtyhtyhtyh654h6tyh
+
+Content-Type: application/json
+{
+    "username": "furelise",
+    "password": "1337"
+}
+
+###
+GET http://localhost:8888/kjdskfjdhthtyhtyhtyh654h6tyh
+
+###
+DELETE  http://localhost:8888/kjdskfjdhthtyhtyhtyh654h6tyh
