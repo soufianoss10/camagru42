@@ -71,7 +71,7 @@
         return $this->statement->fetch(PDO::FETCH_OBJ);
     }
 
-    //row count
+    //row count to get how much line we get from the each select
     public function rowCount(){
         return $this->statement->rowCount();
     }

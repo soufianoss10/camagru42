@@ -3,7 +3,7 @@
     // echo 'hello';
     // App core class 
     // Create URL and loads core controller
-    // URL Format: /controller/method/param 
+    // URL Format: /controller/method/param [] 
     
     class Src {
         protected $currentController = 'Pages';
@@ -39,7 +39,7 @@
             }
             // echo $this->currentMethod;
 
-            //get params
+            //get params by ternary operator
             $this->params = $url ? array_values($url) : [];
 
             //call a callback with array of params
