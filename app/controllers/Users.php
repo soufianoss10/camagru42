@@ -28,7 +28,7 @@
                     $data['email_error'] = 'Enter your email'; 
                 } else {
                     if($this->userModel->findUserByEmail($data['email'])){
-                        $data['email_error'] = 'Email already used'; 
+                        $data['email_error'] = 'Email already used';
                     }
                 }
 
@@ -58,9 +58,10 @@
 
                     //register user
                     if($this->userModel->register($data)){
+                        flash('register_success', 'Congratulations Your are registred and u can log in');
                             redirect('users/login');
                     } else {
-                        die('something wrong!!!');
+                        die('something wrong');
                     }
                 } else{
                     //load view with error

@@ -15,7 +15,6 @@
             try {
             //create new PDO instance
                 $dsn = "mysql:host=5.7-mysql;dbname=" . DB_NAME;
-                    echo 'you are connected';
                 // $ds = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
                 $options = [
                     PDO::ATTR_PERSISTENT => true,

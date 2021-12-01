@@ -4,6 +4,7 @@
 
     //load helpers
     require_once 'helpers/url_help.php';
+    require_once 'helpers/session.php';
 
     //load libs
     require_once 'libraries/src.php';

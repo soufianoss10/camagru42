@@ -11,7 +11,7 @@ class User {
         $this->db->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':email', $data['email']);
-        $this->db->bind(':email', $data['password']);
+        $this->db->bind(':password', $data['password']);
 
         //execute
         if($this->db->execute()){
