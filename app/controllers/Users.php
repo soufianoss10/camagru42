@@ -98,7 +98,7 @@
 
                 $data =[
                     'email' => trim($_POST['email']),
-                    'passsword' => $_POST['password'], 
+                    'password' => $_POST['password'], 
                     'email_error' => '',
                     'password_error' => '',
                     
@@ -112,10 +112,28 @@
                     $data['password_error'] = 'Enter your Password'; 
                 }
 
+                //check user & mail
+                if($this->userModel->findUserByEmail($data['email'])){
+                    //user found
+                } else {
+                    $data['email_error'] = 'user Not found';
+                }
+
                     //check for errors
-                    if(empty($data['email_error']) && empty($data['password_error'])){
-                        die('Success');
-                    } else{
+                if(empty($data['email_error']) && empty($data['password_error'])){
+                  //check and set logged in user
+                        $loggedUser = $this->userModel->login($data['email'], $data['password']);
+
+                        if($loggedUser){
+                            //create session
+                            // die('Success');
+                            $this->createUserSession($loggedUser);
+                        } else {
+                            $data['password_error'] = 'Password incorrect';
+
+                            $this->view('users/login', $data);
+                        }
+                    } else {
                         //load view with error
                         $this->view('users/login', $data);
                     }
@@ -137,6 +155,29 @@
                 // load view
                $this->view('users/login', $data);
             //    echo "sons of bitch";
+            }
+        }
+
+        public function createUserSession($user){
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['user_email'] = $user->email;
+            $_SESSION['user_name'] = $user->name;
+            redirect('pages/index');
+        }
+
+        public function logout(){
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_name']);
+            session_destroy();
+            redirect('users/login');
+        }
+
+        public function islogged(){
+            if(isset($_SESSION['user_id'])){
+                return true;
+            } else {
+                return false;
             }
         }
     }
