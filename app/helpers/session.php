@@ -28,3 +28,11 @@ function flash($name = '', $message = '', $class = 'alert alert-success'){
         }
     }
 }
+
+function islogged(){
+    if(isset($_SESSION['user_id'])){
+        return true;
+    } else {
+        return false;
+    }
+}

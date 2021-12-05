@@ -8,6 +8,9 @@
     // }
         //default method
         public function index(){
+            if(islogged()){
+                redirect('posts');
+            }
             // $posts = $this->postModel->getPosts();
 
             $data = ['title' => 'Welcome'
