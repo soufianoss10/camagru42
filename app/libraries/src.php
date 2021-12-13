@@ -19,7 +19,6 @@
                 // if exist set as controller
 
                 $this->currentController = ucwords($url[0]);
-
                 unset($url[0]);
             }
             // require the controller
@@ -30,21 +29,19 @@
 
             //check second part of url
             if(isset($url[1])){
-                // check if the method exists in controller
-                 if(method_exists($this->currentController, $url[1])){
-                     $this->currentMethod = $url[1];
-
+				if ($url[1] != "__construct" && method_exists($this->currentController, $url[1]))
+				{
+                    $this->currentMethod = $url[1];
                     unset($url[1]);
                 }
             }
-            // echo $this->currentMethod;
 
             //get params by ternary operator
             $this->params = $url ? array_values($url) : [];
-
+			// var_dump([$this->currentController, $this->currentMethod]);
+			// die();
             //call a callback with array of params
             call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
-        
         }
 
         public function getUrl(){

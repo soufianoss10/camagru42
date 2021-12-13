@@ -30,9 +30,26 @@ function flash($name = '', $message = '', $class = 'alert alert-success'){
 }
 
 function islogged(){
-    if(isset($_SESSION['user_id'])){
+    if(isset($_SESSION['id'])){
         return true;
     } else {
         return false;
     }
 }
+
+function createUserSession($user){
+	$_SESSION['id'] = $user->id;
+	$_SESSION['email'] = $user->email;
+	$_SESSION['username'] = $user->username;
+	$_SESSION['notification'] = $user->notification;
+	redirect('posts');
+}
+
+function createUserSessionProfile($user){
+	$_SESSION['id'] = $user->id;
+	$_SESSION['email'] = $user->email;
+	$_SESSION['username'] = $user->username;
+	$_SESSION['notification'] = $user->notification;
+	redirect('users/profile');
+}
+

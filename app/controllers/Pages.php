@@ -1,22 +1,16 @@
 <?php
 
     class Pages extends Controller {
-         public function __construct(){
-            //  echo 'pages is ok';
-        //    $this->postModel = $this->model('Post');
-        }
-    // }
         //default method
+		// To be fixed
         public function index(){
             if(islogged()){
                 redirect('posts');
             }
             // $posts = $this->postModel->getPosts();
 
-            $data = ['title' => 'Welcome'
-        ];
+            $data = ['title' => 'Welcome'];
 
-            
 
             $this->view('pages/index', $data);
            // echo $user;

@@ -54,9 +54,15 @@
 
         $this->statement->bindValue($param, $value, $type);
     }
+
     //execute the prepared statement
     public function execute(){
         return $this->statement->execute();
+    }
+
+    //execute the prepared statement
+    public function lastInsertId(){
+        return $this->dbhandler->lastInsertId();
     }
 
     //get result set as array of objects

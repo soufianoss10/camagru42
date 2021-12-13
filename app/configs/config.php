@@ -9,7 +9,7 @@
 //app root
    define('APPROOT', dirname(dirname(__FILE__)));
 
-   define('URLROOT', 'http://localhost:8888');   // loading css or imgs
+   define('URLROOT', 'http://192.168.99.101:8888');   // loading css or imgs
 
    define('SITENAME', 'CamagruSite'); 
    

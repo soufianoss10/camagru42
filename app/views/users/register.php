@@ -4,27 +4,27 @@
          <div class="card card-body bg-light mb-4"> <h2>Create An Account</h2>
             <p>Please fill out this form to Register in Our Site! </p>
             <form action="<?php echo URLROOT; ?>/users/register" method="POST" >
-                <div class="form-group mt-3">
-                    <label for="name">Name: <sup>*</sup> </label>
-                    <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['name'];?>" > 
+                <div class="form-group">
+                    <label for="username">Username: <sup>*</sup> </label>
+                    <input type="text" name="username" class="form-control form-control-lg <?php echo (!empty($data['name_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['username'];?>" required> 
                     <span class="invalid-feedback"><?php echo $data['name_error']; ?></span>        
                 </div>
 
-                <div class="form-group mt-6">
+                <div class="form-group mt-3">
                     <label for="email">Email: <sup>*</sup> </label>
-                    <input type="email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['email'];?>" > 
+                    <input type="email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['email'];?>" required> 
                     <span class="invalid-feedback"><?php echo $data['email_error']; ?></span>        
                 </div>
 
                 <div class="form-group mt-3">
                     <label for="password">Password: <sup>*</sup> </label>
-                    <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['password'];?>" > 
+                    <input type="password" name="password" class="form-control form-control-lg <?php echo (!empty($data['password_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['password'];?>" required> 
                     <span class="invalid-feedback"><?php echo $data['password_error']; ?></span>      
                 </div>
 
                 <div class="form-group mt-3" >
                     <label for="confirm_password">Confirm Password: <sup>*</sup> </label>
-                    <input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['confirm_password'];?>" > 
+                    <input type="password" name="confirm_password" class="form-control form-control-lg <?php echo (!empty($data['confirm_password_error'])) ? 'is-invalid' : ''; ?>" value="<?= $data['confirm_password'];?>" required> 
                     <span class="invalid-feedback"><?php echo $data['confirm_password_error']; ?></span>        
                 </div>
 

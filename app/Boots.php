@@ -5,6 +5,9 @@
     //load helpers
     require_once 'helpers/url_help.php';
     require_once 'helpers/session.php';
+    require_once 'helpers/send_email.php';
+    require_once 'helpers/send_reset_email.php';
+	
 
     //load libs
     require_once 'libraries/src.php';

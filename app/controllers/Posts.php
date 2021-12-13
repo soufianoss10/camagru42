@@ -9,7 +9,7 @@ class Posts extends Controller {
 
         $this->postModel = $this->model('Post');
         //v2
-        $this->postModel = $this->model('User');
+        // $this->postModel = $this->model('User');
     }
     public function index(){
         //getting posts
@@ -73,8 +73,8 @@ class Posts extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'title' => trim($_POST['title']),
-                'body' => trim($_POST['body']),
+                'title' => is_array($_POST['title']) ? "" : trim($_POST['title']),
+                'body' => is_array($_POST['body']) ? "" : trim($_POST['body']),
                 'user_id' => $_SESSION['user_id'],
                 'title_error' => '',
                 'body_error' => ''
